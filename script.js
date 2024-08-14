@@ -10,6 +10,16 @@ function addToList(e) {
     let inputEl = document.getElementById("to-do-input")
     toDos.push(inputEl.value) // eg., "Mow lawn"
     console.log(toDos) // log ["Mow lawn", "do dishes"]
+
+    // get reference to <ul>
+    let todoListEl = document.getElementById("to-do-list")
+    todoListEl.innerHTML = ""
+    // create a <li> for each "Mow lawn", "do dishes", etc
+    for (let i = 0; i < toDos.length; i = i + 1) {
+        let todoItemEl = document.createElement("li")
+        todoItemEl.innerHTML = toDos[i]
+        todoListEl.appendChild(todoItemEl)
+    }
 }
 
 // When the user submits the #to-do-form form:
