@@ -1,6 +1,16 @@
 let toDos = [];
 
 // 1. ADDING TO-DOS
+let formEl = document.getElementById("to-do-form")
+formEl.addEventListener("submit", addToList)
+
+function addToList(e) {
+    e.preventDefault()
+    // grab the input value
+    let inputEl = document.getElementById("to-do-input")
+    toDos.push(inputEl.value) // eg., "Mow lawn"
+    console.log(toDos) // log ["Mow lawn", "do dishes"]
+}
 
 // When the user submits the #to-do-form form:
 // - Check if the user has typed something in the input
