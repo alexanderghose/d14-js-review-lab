@@ -1,7 +1,7 @@
 let toDos = [];
 let completed = []
-toDos = localStorage.getItem("todos").split()
-completed = localStorage.getItem("completed").split()
+toDos = localStorage.getItem("todos").split(',')
+completed = localStorage.getItem("completed").split(',')
 displayTodos()
 displayCompletedTodos()
 
