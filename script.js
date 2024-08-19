@@ -1,4 +1,5 @@
 let toDos = [];
+let completed = []
 
 // 1. ADDING TO-DOS
 let formEl = document.getElementById("to-do-form")
@@ -11,15 +12,30 @@ function addToList(e) {
     toDos.push(inputEl.value) // eg., "Mow lawn"
     console.log(toDos) // log ["Mow lawn", "do dishes"]
 
+    displayTodos()
+}
+
+function displayTodos() {
     // get reference to <ul>
     let todoListEl = document.getElementById("to-do-list")
     todoListEl.innerHTML = ""
     // create a <li> for each "Mow lawn", "do dishes", etc
     for (let i = 0; i < toDos.length; i = i + 1) {
         let todoItemEl = document.createElement("li")
+        todoItemEl.addEventListener("click", markComplete)
         todoItemEl.innerHTML = toDos[i]
         todoListEl.appendChild(todoItemEl)
     }
+    let countEl = document.getElementById("to-do-count")
+    countEl.innerHTML = toDos.length
+}
+
+function markComplete(evt) {
+    console.log(evt.target) // evt.target is the DOM el being clicked
+    let clickedEl = evt.target
+    let todo = clickedEl.innerHTML
+    completed.push(todo)
+    console.log(completed)
 }
 
 // When the user submits the #to-do-form form:
